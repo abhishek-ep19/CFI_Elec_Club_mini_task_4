@@ -3,7 +3,7 @@ Debugging two Projects
 ### [ 1. Raspberry Pi radio](https://www.instructables.com/id/Raspberry-Pi-Radio/)
 Rotary encoder==> ESP32==> Audio amplifier==> Speaker
 <br />First we have to check whether all parts are working individually or not. 
-<br />For rotary encoder connect VCC of rotary encoder to pin 1 and gnd to pin 9, clk to pin 5 & DT (Data transfer) pin  to pin 7 of rotary encoder. We can also check it with ESP32 connecting its VCC and GND respectively and for DT and clk pin we can program ESP32.
+<br />For rotary encoder connect VCC of rotary encoder to pin 1 and gnd to pin 9, clk to pin 5 & DT (Data transfer) pin  to pin 7 of rotary encoder. We can also check it with ESP32 connecting its VCC and GND respectively and for DT and clk pin we can program ESP32. Since we have to check Volume button also we can check it by running code in RPi/ESP32 and receiving values on serial monitor.
 
 ```
 
@@ -41,19 +41,6 @@ def shutdownRadio(dummy):
     #raise SystemExit
     os.system("sudo halt")
 
-def ChangeRadioChannel(up):
-    global CurChannel    
-    global Channels
-    CurChannel=CurChannel + 2*up
-    if CurChannel>=len(Channels)-1: CurChannel=0    
-    os.system("pkill mplayer");
-    os.system('echo "'+Channels[CurChannel]+'" | festival --tts')
-    args = shlex.split("mplayer "+Channels[CurChannel+1]+" &")
-    subprocess.Popen(args)
-    file = open("LastChannel.txt","w")
-    file.write(str(CurChannel)+"\n")
-    file.close()
-
 def Rot(channel):
     global Last
     global Prev
@@ -68,5 +55,6 @@ def Rot(channel):
     Prev = Last
 
 ```
+
 
 ### [2. Connect BLE Weather Sensor to the Cloud](https://www.hackster.io/ble-weather-aws/connect-ble-weather-sensor-to-the-cloud-e79d9d)
