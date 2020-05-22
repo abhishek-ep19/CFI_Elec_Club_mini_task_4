@@ -55,6 +55,18 @@ def Rot(channel):
     Prev = Last
 
 ```
-
+---
+<br />2. Second step would be to check whether ESP32/RPi is working properly or not for the transmission or receiving of data and the pins we are using. If not, then get a new RPi/ESP32 board.
+<br />3. Now we can check the speakers by connecting the wires with an ordinary device like smartphone or computer and check whether it is receiving or not and if not get new speakers.
+<br />4. Fourth step would be to check whether after connecting RPi to the speakers it is working or not.
+<br />5. Check the connections properly.
+<br />6. Now, if the radio after connecting parts properly still doesn't work, it might be a problem because of code doesn't working properly.
 
 ### [2. Connect BLE Weather Sensor to the Cloud](https://www.hackster.io/ble-weather-aws/connect-ble-weather-sensor-to-the-cloud-e79d9d)
+
+
+
+
+
+
+
